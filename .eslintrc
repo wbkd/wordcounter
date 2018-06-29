@@ -7,14 +7,24 @@
         "functions": "ignore"
       }
     ],
+    "react-in-jsx-scope": 0,
     "react/prop-types": 0,
     "no-console": 0,
+    "react/react-in-jsx-scope": "error",
+    "react/jsx-no-bind": ["error", {
+      "allowArrowFunctions": true,
+      "allowBind": false,
+      "ignoreRefs": true
+    }],
     "react/prefer-stateless-function": [0, { "ignorePureComponents": true }]
   },
   "env": {
     "browser": true
   },
   "settings": {
+    "react": {
+      "pragma": "h"
+    },
     "import/resolver": {
       "webpack": {
         "config": "./webpack/webpack.config.dev.js"
@@ -22,6 +32,7 @@
     }
   },
   "globals": {
-    "config": true
+    "config": true,
+    "h": true
   }
 }
