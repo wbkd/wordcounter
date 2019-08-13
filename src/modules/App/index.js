@@ -111,11 +111,11 @@ class App extends Component {
     return (
       <AppWrapper>
         <AppInner>
-          <Headline>🧐 Word Counter</Headline>
+          <Headline><span role="img" aria-label="Face with monocle">🧐</span> Smart Word Counter</Headline>
           <Paragraph>
             This is a word counter for German and English texts.
-            Before counting we remove stop words (der, die, this, that, ...) and 
-            transform the words to a common base form (Nachbarn => Nachbar, trees => tree).
+            Before counting we remove <a href="https://en.wikipedia.org/wiki/Stop_words" target="_blank">stop words</a> and
+            transform the words to a common base form (trees => tree, or for the German version: Nachbarn => Nachbar).
           </Paragraph>
 
           <Form onSubmit={this.onSubmit} disabled>
