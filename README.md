@@ -1,5 +1,7 @@
 # Wordcounter
 
+A React frontend for our [wordcount-api](https://github.com/wbkd/wordcount-api).
+
 ## Installation
 
 ```sh
