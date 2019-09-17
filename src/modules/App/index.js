@@ -7,7 +7,6 @@ import Table from '~/components/Table';
 import Error from '~/components/Error';
 import Button from '~/components/Button';
 import DownloadButton from '~/components/DownloadButton';
-import Cloud from '~/components/Cloud';
 
 import sendText from './apiservice';
 import config from './config';
@@ -138,7 +137,6 @@ class App extends PureComponent {
           </Form>
           <Error text={this.state.error} />
           <DownloadButton data={this.state.data} />
-          <Cloud data={this.state.data} />
           <Table data={this.state.data} />
         </AppInner>
         <Footer>
