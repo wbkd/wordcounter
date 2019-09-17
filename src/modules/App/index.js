@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 import Form from '~/components/Form';
@@ -7,6 +7,7 @@ import Table from '~/components/Table';
 import Error from '~/components/Error';
 import Button from '~/components/Button';
 import DownloadButton from '~/components/DownloadButton';
+import Cloud from '~/components/Cloud';
 
 import sendText from './apiservice';
 import config from './config';
@@ -16,11 +17,12 @@ const maxChars = 20000;
 
 const AppWrapper = styled.div`
   margin: 0 auto;
-  max-width: 820px;
   color: ${mainColor};
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 760px;
 `;
 
 const AppInner = styled.div`
@@ -63,7 +65,7 @@ const Counter = styled.div`
   color: #888;
 `;
 
-class App extends Component {
+class App extends PureComponent {
   state = {
     error: null,
     data: [],
@@ -114,20 +116,18 @@ class App extends Component {
           <Headline><span role="img" aria-label="Face with monocle">🧐</span> Smart Word Counter</Headline>
           <Paragraph>
             This is a word counter for German and English texts.
-            Before counting we remove <a href="https://en.wikipedia.org/wiki/Stop_words" target="_blank">stop words</a> and
-            transform the words to a common base form (trees => tree, or for the German version: Nachbarn => Nachbar).
           </Paragraph>
 
           <Form onSubmit={this.onSubmit} disabled>
             <label htmlFor="language">Select language</label>
             <select name="language">
-              {config.languages.map(lang => <option value={lang.key}>{lang.value}</option>)}
+              {config.languages.map(lang => <option key={lang.key} value={lang.key}>{lang.value}</option>)}
             </select>
             <label htmlFor="text">Insert text</label>
             <textarea
               name="text"
               onChange={this.onType}
-              onKeyup={this.onType}
+              onKeyUp={this.onType}
               value={this.state.text}
             />
             <ButtonWrapper>
@@ -138,10 +138,11 @@ class App extends Component {
           </Form>
           <Error text={this.state.error} />
           <DownloadButton data={this.state.data} />
+          <Cloud data={this.state.data} />
           <Table data={this.state.data} />
         </AppInner>
         <Footer>
-          Made by <a href="https://webkid.io">webkid</a><br />
+          Made by <a href="https://webkid.io" target="_blank" rel="noopener noreferrer">webkid</a> | <a href="https://webkid.io/blog/simple-wordcounter" target="_blank" rel="noopener noreferrer">methodology</a><br />
           Do you need to process larger files or other features?<br />
           Don't hesitate to contact us <a href="mailto:info@webkid.io">info@webkid.io</a>.
         </Footer>

@@ -58,12 +58,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        options: {
-          plugins: [
-            ['transform-react-jsx', { pragma: 'h' }]
-          ]
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,

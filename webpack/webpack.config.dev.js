@@ -39,12 +39,7 @@ module.exports = merge(common, {
       {
         test: /\.(js|jsx)$/,
         include: Path.resolve(__dirname, '../src'),
-        loader: 'babel-loader',
-        options: {
-          plugins: [
-            ['transform-react-jsx', { pragma: 'h' }]
-          ]
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,

@@ -22,9 +22,6 @@
     "browser": true
   },
   "settings": {
-    "react": {
-      "pragma": "h"
-    },
     "import/resolver": {
       "webpack": {
         "config": "./webpack/webpack.config.dev.js"
@@ -32,7 +29,6 @@
     }
   },
   "globals": {
-    "config": true,
-    "h": true
+    "config": true
   }
 }
