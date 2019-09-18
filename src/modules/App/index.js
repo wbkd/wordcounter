@@ -114,7 +114,9 @@ class App extends PureComponent {
         <AppInner>
           <Headline><span role="img" aria-label="Face with monocle">🧐</span> Smart Word Counter</Headline>
           <Paragraph>
-            This is a word counter for German and English texts.
+            This tool will count the frequency of words in a text removing <a href="https://en.wikipedia.org/wiki/Stop_words" target="_blank">stop words</a> and <a href="https://en.wikipedia.org/wiki/Lemmatisation" target="_blank">transforming</a> the words into a common base form (trees => tree, or for the German version: Nachbarn => Nachbar).
+            <br />
+            Read more in our <a href="https://webkid.io/blog/simple-wordcounter/" target="_blank">blogpost</a>.
           </Paragraph>
 
           <Form onSubmit={this.onSubmit} disabled>
